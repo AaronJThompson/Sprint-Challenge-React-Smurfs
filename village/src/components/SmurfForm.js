@@ -1,5 +1,18 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import Colors from './colors';
+
+const StyledButton = styled.button`
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  color: white;
+  background: none;
+  background-color: ${Colors.primary};
+  display: block;
+  margin: 0 auto;
+  border: none;
+`;
 
 class SmurfForm extends Component {
   constructor(props) {
@@ -56,7 +69,7 @@ class SmurfForm extends Component {
             min="1"
             required
           />
-          <button type="submit">Add to the village</button>
+          <StyledButton type="submit">Add to the village</StyledButton>
         </form>
       </div>
     );
