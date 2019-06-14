@@ -77,6 +77,12 @@ class App extends Component {
               )
             }}
           />
+          <Route path='/:id' render={pr => {
+              return(
+                <Smurfs smurfs={this.state.smurfs} deleteSmurf={this.deleteSmurf} />
+              )
+            }}
+          />
           <Route path='/smurf-form' render={pr => {
               return(
                 <SmurfForm sendSmurf={this.addSmurf.bind(this)}/>
