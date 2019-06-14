@@ -73,7 +73,7 @@ class App extends Component {
           <div style={{height: "3rem"}} />
           <Route exact path='/' render={pr => {
               return(
-                <Smurfs smurfs={this.state.smurfs} />
+                <Smurfs smurfs={this.state.smurfs} deleteSmurf={this.deleteSmurf} />
               )
             }}
           />

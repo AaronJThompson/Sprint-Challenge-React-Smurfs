@@ -58,7 +58,27 @@ const HeightLine = styled.span`
   border-right-width: 1px;
   border-right-color: black;
 `;
-const Smurf = props => {
+
+const DeleteButton = styled.button`
+  margin-top: 1rem;
+  width: 2rem;
+  height: 2rem;
+  text-align: center;
+  vertical-align: center;
+  border-radius: 10px;
+  color: white;
+  background: none;
+  background-color: ${Colors.secondary};
+  display: block;
+  margin: 0 auto;
+  border: none;
+`;
+function Smurf(props) {
+
+  var deleteSmurf = () => {
+    props.delete(props.id);
+  };
+
   return (
     <SmurfCard>
       <Header>
@@ -70,6 +90,7 @@ const Smurf = props => {
         <img src={smurfImage} />
       </SmurfInfo>
       <p>{props.age} smurf years old</p>
+      <DeleteButton onClick={deleteSmurf}>X</DeleteButton>
     </SmurfCard>
   );
 };
