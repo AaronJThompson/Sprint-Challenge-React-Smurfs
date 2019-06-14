@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Colors from './colors';
 import smurfImage from '../assets/smurf.png'
 const SmurfCard = styled.div`
+  position: relative;
   height: 30rem;
   width: 25rem;
   background-color: white;
@@ -60,11 +61,12 @@ const HeightLine = styled.span`
 `;
 
 const DeleteButton = styled.button`
-  margin-top: 1rem;
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
   width: 2rem;
   height: 2rem;
   text-align: center;
-  vertical-align: center;
   border-radius: 10px;
   color: white;
   background: none;
@@ -72,6 +74,7 @@ const DeleteButton = styled.button`
   display: block;
   margin: 0 auto;
   border: none;
+
 `;
 function Smurf(props) {
 
@@ -82,6 +85,7 @@ function Smurf(props) {
   return (
     <SmurfCard>
       <Header>
+        <DeleteButton onClick={deleteSmurf}>X</DeleteButton>
         <h3>{props.name}</h3>
       </Header>
       <SmurfInfo>
@@ -90,7 +94,6 @@ function Smurf(props) {
         <img src={smurfImage} />
       </SmurfInfo>
       <p>{props.age} smurf years old</p>
-      <DeleteButton onClick={deleteSmurf}>X</DeleteButton>
     </SmurfCard>
   );
 };
