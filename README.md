@@ -28,9 +28,27 @@ In this challenge, you will create a Single Page Application complete with Clien
 
 Demonstrate your understanding of this Sprint's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
-- [ ] Explain the differences between `client-side routing` and `server-side routing`.
-- [ ] Which HTTP methods can be mapped to the CRUD acronym that we use when interfacing with APIs/Servers.
-- [ ] Mention three tools we can use to make AJAX requests.
+- [ ] Explain the differences between `client-side routing` and `server-side routing`. 
+
+A: Server side routing is where each page is requested from the server and sent to the browser which then compiles and renders the page. Each route corresponds to a directory or file on the server that the browser can request. This means that each page must be loaded from scratch when the user is navigating. This is good for SEO as search engines are optimised for this type of structure. It is also good for initial load time as only the page that the user is requesting is sent. However, if the user intends to stay on the site and navigate through pages, the user experience could be worse compared to single page applications as pages have to be loaded in their entirety each time, making the site as a whole a less responsive experience if navigating through routes is frequent. It can also put additional stress on the server as many requests must be fulfilled to provide the whole site. 
+
+Client side routing is where each page is rendered from existing data (or fetched raw data) on the client. Each route is rendered by the client with DOM manipulation. This is good for load times as little to no requests for data are sent to the server, meaning the only bottleneck in load times for each route are the time it takes for the browser to manipulate the DOM and render the page. It's also good for the server as the majority of the application can be sent in one request. It may, however, be worse for SEO as single page applications are only recently being made wide-spread and web-crawlers must do additional work to see the whole site, aswell as being mostly optimised for traditional website routing.
+
+- [ ] Which HTTP methods can be mapped to the CRUD acronym that we use when interfacing with APIs/Servers. 
+
+A: Here is the standard mapping for HTTP requests to CRUD operations: 
+C: POST 
+R: GET 
+U: PUT or PATCH
+D: DELETE 
+
+- [ ] Mention three tools we can use to make AJAX requests. 
+
+One tool would be the fetch method. This is a native method in Javascript introduced in 2015 to browsers. It's normal function is to perform GET requests, however it accepts headers as a parameter where the method of the request can be defined. 
+
+Another tool would be axios. Axios is a library for javascript which allows for AJAX requests to be made easily with a few methods. Just like fetch it uses promises to perform requests asynchronously. It also performs JSON paresing automatically which makes it easier to implement. 
+
+Another tool could be Postman. Postman is a GUI tools for testing API's. It supports AJAX requests and allows developers to organise their requests and endpoints into collections so that they can be tested and referenced during the development phase.
 
 
 ## Project Set Up
