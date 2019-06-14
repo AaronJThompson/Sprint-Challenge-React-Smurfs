@@ -28,7 +28,9 @@ class App extends Component {
   }
 
   addSmurf(smurf){
-    smurf.age = parseInt(smurf.age)
+    smurf.age = parseInt(smurf.age);
+    smurf.height = `${smurf.height}cm`
+    
     axios
       .post(smurfsAPI, smurf)
       .then(res => this.updateSmurfs(res.data));
