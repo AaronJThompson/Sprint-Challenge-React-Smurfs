@@ -17,10 +17,20 @@ class App extends Component {
   // Notice what your map function is looping over and returning inside of Smurfs.
   // You'll need to make sure you have the right properties on state and pass them down to props.
 
-  updateSmurfs() {
+  updateSmurfs(data) {
+    if (!data) {
+      axios
+        .get(smurfsAPI)
+        .then(res => this.setState({smurfs: res.data}));
+    } else {
+      this.setState({smurfs: data});
+    }
+  }
+
+  addSmurf(smurf){
     axios
-      .get(smurfsAPI)
-      .then(res => this.setState({smurfs: res.data}));
+      .post(smurfsAPI, smurf)
+      .then(res => this.updateSmurfs(res.data));
   }
 
   componentDidMount() {
