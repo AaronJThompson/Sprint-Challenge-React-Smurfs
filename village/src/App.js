@@ -53,6 +53,18 @@ class App extends Component {
     this.updateSmurfs();
   }
 
+  deleteSmurf = (id) => {
+    axios
+      .delete(`${smurfsAPI}/${id}`)
+      .then(res => this.updateSmurfs(res.data));
+  }
+
+  updateSmurf = (id, fields) => {
+    axios
+      .put(`${smurfsAPI}/${id}`, fields)
+      .then(res => this.updateSmurfs(res.data));
+  }
+
   render() {
     return (
       <Router>
