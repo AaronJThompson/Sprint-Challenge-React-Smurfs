@@ -11,7 +11,7 @@ const SmurfCard = styled.div`
   flex-direction: column;
   align-items: center;
   font-family: 'Roboto', sans-serif;
-
+  margin-bottom: 3rem;
   * {
     font-family: 'Roboto', sans-serif;
   }
