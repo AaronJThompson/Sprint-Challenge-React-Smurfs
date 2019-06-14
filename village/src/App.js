@@ -28,6 +28,7 @@ class App extends Component {
   }
 
   addSmurf(smurf){
+    smurf.age = parseInt(smurf.age)
     axios
       .post(smurfsAPI, smurf)
       .then(res => this.updateSmurfs(res.data));
@@ -40,7 +41,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <SmurfForm />
+        <SmurfForm sendSmurf={this.addSmurf.bind(this)}/>
         <Smurfs smurfs={this.state.smurfs} />
       </div>
     );
