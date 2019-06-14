@@ -5,9 +5,20 @@ import { BrowserRouter as Router, Route, Link, NavLink } from 'react-router-dom'
 import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
+import NavBar from './components/NavBar';
 
 const smurfsAPI = 'http://localhost:3333/smurfs';
-
+const smurfLinks = [
+  {
+    path: '/',
+    label: 'Home',
+    exact: true,
+  },
+  {
+    path: '/smurf-form',
+    label: 'Add Smurf'
+  }
+]
 class App extends Component {
   constructor(props) {
     super(props);
@@ -46,6 +57,8 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
+          <NavBar links={smurfLinks} />
+          <div style={{height: "3rem"}} />
           <Route exact path='/' render={pr => {
               return(
                 <Smurfs smurfs={this.state.smurfs} />
